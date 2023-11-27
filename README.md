@@ -1,2 +1,4 @@
 # apollo-mission3-univarsity-management-system
-Let's deep drive into NOSQL world.
+
+#### Requirement Analysis
+  - https://docs.google.com/document/d/1nZxJUFbtwtU7jgNlm9TVPGH7NgKu59BsOfNseMAAN6k/edit?usp=sharing
