@@ -1,7 +1,7 @@
 # Apollo Univarsity Management System
 
-#### Requirement Analysis
-[Requirement Analysis Document](https://docs.google.com/document/d/10mkjS8boCQzW4xpsESyzwCCLJcM3hvLghyD_TeXPBx0/edit?usp=sharing)
+#### Requirement Analysis and Data Model
+[Requirement Analysis and Data Model Document](https://docs.google.com/document/d/10mkjS8boCQzW4xpsESyzwCCLJcM3hvLghyD_TeXPBx0/edit?usp=sharing)
 
 #### Entity-Relationship (ER) Diagram
 ![Updated ER Diagram](./Final.png)
