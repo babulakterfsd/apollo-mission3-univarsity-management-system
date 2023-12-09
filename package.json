@@ -1,7 +1,7 @@
 {
-  "name": "first-project",
+  "name": "apollo-university-management-system-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "create apis to manage apollo university.",
   "main": "index.js",
   "scripts": {
     "start:prod": "node ./dist/server.js",
