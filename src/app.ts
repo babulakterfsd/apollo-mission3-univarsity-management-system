@@ -14,15 +14,16 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
+//welcome route
+app.get('/api/v1', (req: Request, res: Response) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'Welcome to Apollo Univarsity Server',
+  });
+});
+
 // application routes
 app.use('/api/v1', router);
-
-const test = async (req: Request, res: Response) => {
-  const a = 10;
-  res.send(a);
-};
-
-app.get('/', test);
 
 app.use(globalErrorHandler);
 

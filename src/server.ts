@@ -10,7 +10,7 @@ async function main() {
     await mongoose.connect(config.database_url as string);
 
     server = app.listen(config.port, () => {
-      console.log(`app is listening on port ${config.port}`);
+      console.log(`Connected to server and app is listening to port ${config.port}`);
     });
   } catch (err) {
     console.log(err);
@@ -19,6 +19,7 @@ async function main() {
 
 main();
 
+//if any error happens in async code, it will be caught here
 process.on('unhandledRejection', () => {
   console.log(`😈 unahandledRejection is detected , shutting down ...`);
   if (server) {
@@ -29,6 +30,7 @@ process.on('unhandledRejection', () => {
   process.exit(1);
 });
 
+//if any error happens in sync code, it will be caught here
 process.on('uncaughtException', () => {
   console.log(`😈 uncaughtException is detected , shutting down ...`);
   process.exit(1);
