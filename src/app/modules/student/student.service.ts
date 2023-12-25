@@ -5,11 +5,10 @@ import AppError from '../../errors/AppError';
 import { User } from '../user/user.model';
 import { studentSearchableFields } from './student.constant';
 import { TStudent } from './student.interface';
-import { Student } from './student.model'; 
+import { Student } from './student.model';
 
 const getAllStudentsFromDB = async (query: Record<string, unknown>) => {
-
-   /*
+  /*
   const queryObj = { ...query }; // copying req.query object so that we can mutate the copy object 
    
   let searchTerm = '';   // SET DEFAULT VALUE 
@@ -111,6 +110,7 @@ const getAllStudentsFromDB = async (query: Record<string, unknown>) => {
 
   const studentQuery = new QueryBuilder(
     Student.find()
+      .populate('user')
       .populate('admissionSemester')
       .populate({
         path: 'academicDepartment',
@@ -126,8 +126,13 @@ const getAllStudentsFromDB = async (query: Record<string, unknown>) => {
     .paginate()
     .fields();
 
+  const meta = await studentQuery.countTotal();
   const result = await studentQuery.modelQuery;
-  return result;
+
+  return {
+    meta,
+    result,
+  };
 };
 
 const getSingleStudentFromDB = async (id: string) => {
@@ -149,16 +154,7 @@ const updateStudentIntoDB = async (id: string, payload: Partial<TStudent>) => {
     ...remainingStudentData,
   };
 
-  /*
-    guardain: {
-      fatherOccupation:"Teacher"
-    }
-
-    guardian.fatherOccupation = Teacher
-
-    name.firstName = 'Mezba'
-    name.lastName = 'Abedin'
-  */
+  
 
   if (name && Object.keys(name).length) {
     for (const [key, value] of Object.entries(name)) {
